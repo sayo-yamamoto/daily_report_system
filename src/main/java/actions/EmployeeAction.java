@@ -32,10 +32,10 @@ public class EmployeeAction extends ActionBase {
 
         long employeeCount = service.countAll();
 
-        putRequestScope(AttributeConst.EMPLOYEES, employees); //取得した従業員データ
-        putRequestScope(AttributeConst.EMP_COUNT, employeeCount); //全ての従業員データの件数
+        putRequestScope(AttributeConst.EMPLOYEES, employees);
+        putRequestScope(AttributeConst.EMP_COUNT, employeeCount);
         putRequestScope(AttributeConst.PAGE, page); //ページ数
-        putRequestScope(AttributeConst.MAX_ROW, JpaConst.ROW_PER_PAGE); //1ページに表示するレコードの数
+        putRequestScope(AttributeConst.MAX_ROW, JpaConst.ROW_PER_PAGE);
 
         String flush = getSessionScope(AttributeConst.FLUSH);
         if (flush != null) {
@@ -45,6 +45,13 @@ public class EmployeeAction extends ActionBase {
 
         forward(ForwardConst.FW_EMP_INDEX);
 
+    }
+    public void entryNew() throws ServletException, IOException {
+
+        putRequestScope(AttributeConst.TOKEN, getTokenId());
+        putRequestScope(AttributeConst.EMPLOYEE, new EmployeeView());
+
+        forward(ForwardConst.FW_EMP_NEW);
     }
 
 }
