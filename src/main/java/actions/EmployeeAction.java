@@ -9,9 +9,9 @@ import actions.views.EmployeeView;
 import constants.AttributeConst;
 import constants.ForwardConst;
 import constants.JpaConst;
-import services.EmployeeService;
 import constants.MessageConst;
 import constants.PropertyConst;
+import services.EmployeeService;
 
 
 public class EmployeeAction extends ActionBase {
@@ -100,6 +100,24 @@ public class EmployeeAction extends ActionBase {
             }
 
         }
+    }
+
+    public void show() throws ServletException, IOException {
+
+        //idを条件に従業員データを取得する
+        EmployeeView ev = service.findOne(toNumber(getRequestParam(AttributeConst.EMP_ID)));
+
+        if (ev == null || ev.getDeleteFlag() == AttributeConst.DEL_FLAG_TRUE.getIntegerValue()) {
+
+            //データが取得できなかった、または論理削除されている場合はエラー画面を表示
+            forward(ForwardConst.FW_ERR_UNKNOWN);
+            return;
+        }
+
+        putRequestScope(AttributeConst.EMPLOYEE, ev); //取得した従業員情報
+
+        //詳細画面を表示
+        forward(ForwardConst.FW_EMP_SHOW);
     }
 
 }
