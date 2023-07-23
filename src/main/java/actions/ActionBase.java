@@ -15,7 +15,7 @@ import constants.AttributeConst;
 import constants.ForwardConst;
 import constants.PropertyConst;
 
-public class ActionBase {
+public abstract class ActionBase {
     protected ServletContext context;
     protected HttpServletRequest request;
     protected HttpServletResponse response;

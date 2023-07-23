@@ -37,7 +37,7 @@ public class EmployeeAction extends ActionBase {
 
         putRequestScope(AttributeConst.EMPLOYEES, employees);
         putRequestScope(AttributeConst.EMP_COUNT, employeeCount);
-        putRequestScope(AttributeConst.PAGE, page); //ページ数
+        putRequestScope(AttributeConst.PAGE, page);
         putRequestScope(AttributeConst.MAX_ROW, JpaConst.ROW_PER_PAGE);
 
         String flush = getSessionScope(AttributeConst.FLUSH);
@@ -82,9 +82,9 @@ public class EmployeeAction extends ActionBase {
             if (errors.size() > 0) {
                 //登録中にエラーがあった場合
 
-                putRequestScope(AttributeConst.TOKEN, getTokenId()); //CSRF対策用トークン
-                putRequestScope(AttributeConst.EMPLOYEE, ev); //入力された従業員情報
-                putRequestScope(AttributeConst.ERR, errors); //エラーのリスト
+                putRequestScope(AttributeConst.TOKEN, getTokenId());
+                putRequestScope(AttributeConst.EMPLOYEE, ev);
+                putRequestScope(AttributeConst.ERR, errors);
 
                 //新規登録画面を再表示
                 forward(ForwardConst.FW_EMP_NEW);

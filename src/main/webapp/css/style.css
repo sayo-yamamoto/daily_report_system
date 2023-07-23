@@ -89,3 +89,7 @@ button {
 #footer {
     text-align: center;
 }
+
+select {
+    height: 30px;
+}

@@ -12,7 +12,7 @@ import models.Employee;
 import utils.EncryptUtil;
 import validators.EmployeeValidator;
 
-public class EmployeeService {
+public class EmployeeService extends ServiceBase {
 
     public List<EmployeeView> getPerPage(int page) {
         List<Employee> employees = em.createNamedQuery(JpaConst.Q_EMP_GET_ALL, Employee.class)
