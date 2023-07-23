@@ -7,10 +7,12 @@ public interface JpaConst {
     int ROW_PER_PAGE = 15;
 
     String TABLE_EMP = "employees";
+
     String EMP_COL_ID = "id";
     String EMP_COL_CODE = "code";
     String EMP_COL_NAME = "name";
     String EMP_COL_PASS = "password";
+    String EMP_COL_ADMIN_FLAG = "admin_flag"; //管理者権限
     String EMP_COL_CREATED_AT = "created_at";
     String EMP_COL_UPDATED_AT = "updated_at";
     String EMP_COL_DELETE_FLAG = "delete_flag";
@@ -36,8 +38,8 @@ public interface JpaConst {
     String JPQL_PARM_PASSWORD = "password";
     String JPQL_PARM_EMPLOYEE = "employee";
 
-    String Q_EMP_GET_ALL = ENTITY_EMP + ".getAll"; //name
-    String Q_EMP_GET_ALL_DEF = "SELECT e FROM Employee AS e ORDER BY e.id DESC"; //query
+    String Q_EMP_GET_ALL = ENTITY_EMP + ".getAll";
+    String Q_EMP_GET_ALL_DEF = "SELECT e FROM Employee AS e ORDER BY e.id DESC";
 
     String Q_EMP_COUNT = ENTITY_EMP + ".count";
     String Q_EMP_COUNT_DEF = "SELECT COUNT(e) FROM Employee AS e";
