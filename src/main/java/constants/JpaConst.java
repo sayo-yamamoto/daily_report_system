@@ -23,6 +23,7 @@ public interface JpaConst {
     int EMP_DEL_FALSE = 0;
 
     String TABLE_REP = "reports";
+
     String REP_COL_ID = "id";
     String REP_COL_EMP = "employee_id";
     String REP_COL_REP_DATE = "report_date";
@@ -30,6 +31,10 @@ public interface JpaConst {
     String REP_COL_CONTENT = "content";
     String REP_COL_CREATED_AT = "created_at";
     String REP_COL_UPDATED_AT = "updated_at";
+    String REP_COL_GOOD_FLAG = "good_flag";
+
+    int REP_GOOD_TRUE=1;
+    int REP_GOOD_FALSE=0;
 
     String ENTITY_EMP = "employee";
     String ENTITY_REP = "report";

@@ -37,6 +37,10 @@
                     <fmt:parseDate value="${report.updatedAt}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="updateDay" type="date" />
                     <td><fmt:formatDate value="${updateDay}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
                 </tr>
+                <tr>
+                    <th>いいね</th>
+                    <td>〇</td>
+                </tr>
             </tbody>
         </table>
 
@@ -45,7 +49,9 @@
                 <a href="<c:url value='?action=${actRep}&command=${commEdt}&id=${report.id}' />">この日報を編集する</a>
             </p>
         </c:if>
-
+        <form method="POST" action="<c:url value='/?action=${action}&command=${command}' />">
+            <button type="submit">いいね</button>
+        </form>
         <p>
             <a href="<c:url value='?action=${actRep}&command=${commIdx}' />">一覧に戻る</a>
         </p>
