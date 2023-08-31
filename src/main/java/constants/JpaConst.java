@@ -12,7 +12,7 @@ public interface JpaConst {
     String EMP_COL_CODE = "code";
     String EMP_COL_NAME = "name";
     String EMP_COL_PASS = "password";
-    String EMP_COL_ADMIN_FLAG = "admin_flag"; //管理者権限
+    String EMP_COL_ADMIN_FLAG = "admin_flag";
     String EMP_COL_CREATED_AT = "created_at";
     String EMP_COL_UPDATED_AT = "updated_at";
     String EMP_COL_DELETE_FLAG = "delete_flag";

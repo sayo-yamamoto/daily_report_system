@@ -2,10 +2,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page import="constants.ForwardConst" %>
+<%@ page import="constants.AttributeConst" %>
 
 <c:set var="actRep" value="${ForwardConst.ACT_REP.getValue()}" />
 <c:set var="commIdx" value="${ForwardConst.CMD_INDEX.getValue()}" />
 <c:set var="commEdt" value="${ForwardConst.CMD_EDIT.getValue()}" />
+<c:set var="commGood" value="${ForwardConst.CMD_GOOD.getValue()}" />
 
 <c:import url="/WEB-INF/views/layout/app.jsp">
     <c:param name="content">
@@ -39,7 +41,16 @@
                 </tr>
                 <tr>
                     <th>いいね</th>
-                    <td>〇</td>
+                    <td>
+                        <c:if test="${report.goodFlag != null}">
+                            <c:if test="${report.goodFlag == AttributeConst.GOOD_FLAG_TRUE.getIntegerValue()}">
+                                〇
+                            </c:if>
+                            <c:if test="${report.goodFlag == AttributeConst.GOOD_FLAG_FALSE.getIntegerValue()}">
+                                ×
+                            </c:if>
+                        </c:if>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -49,8 +60,9 @@
                 <a href="<c:url value='?action=${actRep}&command=${commEdt}&id=${report.id}' />">この日報を編集する</a>
             </p>
         </c:if>
-        <form method="POST" action="<c:url value='/?action=${action}&command=${command}' />">
-            <button type="submit">いいね</button>
+        <form method="POST" action="<c:url value='/?action=${actRep}&command=${commGood}' />">
+            <input type="hidden" name="${AttributeConst.REP_ID.getValue()}" value="${report.id}" />
+            <input type="image" src="images/iine.png" height="50" width="80" alt="いいね" />
         </form>
         <p>
             <a href="<c:url value='?action=${actRep}&command=${commIdx}' />">一覧に戻る</a>

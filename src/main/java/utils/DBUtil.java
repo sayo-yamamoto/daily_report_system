@@ -8,6 +8,7 @@ import constants.JpaConst;
 
 
 public class DBUtil {
+
     private static EntityManagerFactory emf;
 
     public static EntityManager createEntityManager() {
